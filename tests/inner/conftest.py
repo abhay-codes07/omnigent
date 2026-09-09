@@ -31,7 +31,7 @@ def short_tmp_parent() -> Iterator[pathlib.Path]:
 
     macOS caps an ``AF_UNIX`` path at ~103 bytes and its ``$TMPDIR`` is already
     ~48 bytes, so pytest's ``tmp_path`` (which embeds the test name) overflows
-    before a socket filename is appended (issue #4279). Tests that bind a real
+    before a socket filename is appended. Tests that bind a real
     Unix socket — the private tmux server, the egress proxy — must place it
     under a short parent. Production sockets already live under a short
     ``$TMPDIR/omnigent-...`` path, so this is a test-path artifact only.

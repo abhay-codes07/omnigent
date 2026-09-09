@@ -3,10 +3,7 @@
 from __future__ import annotations
 
 import asyncio
-import shutil
 import socket
-import uuid
-from collections.abc import Iterator
 from pathlib import Path
 
 import pytest
@@ -19,17 +16,6 @@ def _pick_free_port() -> int:
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind(("127.0.0.1", 0))
         return s.getsockname()[1]
-
-
-@pytest.fixture
-def short_tmp_parent() -> Iterator[Path]:
-    """Short-pathed tmpdir under ``/tmp``. ``tmp_path`` overflows AF_UNIX on macOS."""
-    parent = Path("/tmp") / f"omni-relay-{uuid.uuid4().hex[:8]}"
-    parent.mkdir(mode=0o700)
-    try:
-        yield parent
-    finally:
-        shutil.rmtree(parent, ignore_errors=True)
 
 
 @pytest.mark.asyncio

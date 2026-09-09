@@ -160,7 +160,7 @@ async def test_create_session_threads_workspace_to_pi_cwd(
     monkeypatch.setenv("OMNIGENT_CONFIG_HOME", str(tmp_path / "config-home"))
     # Isolate $HOME too: ambient provider detection reads ~/.databrickscfg,
     # which on a multi-profile Databricks dev box otherwise 400s the create
-    # with "match <host>; use --profile" (issue #4279).
+    # with "match <host>; use --profile".
     monkeypatch.setenv("HOME", str(tmp_path / "config-home"))
     monkeypatch.setenv("USERPROFILE", str(tmp_path / "config-home"))
     session_id = "18f39ab73f49285e4dab0c80ff7b8455"

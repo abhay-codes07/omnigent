@@ -55,9 +55,8 @@ BWRAP_AVAILABLE = shutil.which("bwrap") is not None
 
 # Skip anything that reaches real bwrap resolution/execution when bwrap is not
 # available (macOS, Windows, or a bwrap-less Linux box) — the backend hard-errors
-# off Linux by design. Defined here at module top so it can decorate tests
-# throughout the file, including the resolver tests below (issue #4279: it was
-# previously defined *after* those tests, so it never gated them).
+# off Linux by design. Defined at module top so it can decorate tests
+# throughout the file, including the resolver tests below.
 pytestmark_bwrap = pytest.mark.skipif(
     not BWRAP_AVAILABLE, reason="bwrap not installed on this host"
 )

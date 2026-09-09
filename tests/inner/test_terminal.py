@@ -387,7 +387,7 @@ async def test_server_survives_inner_process_exit_real_tmux(
         name="bash",
         session_key="s1",
         # short_tmp_parent (not tmp_path): tmux's AF_UNIX socket path overflows
-        # the macOS 103-byte cap when it embeds pytest's long tmp_path (#4279).
+        # the macOS 103-byte cap when it embeds pytest's long tmp_path.
         socket_path=short_tmp_parent / "tmux.sock",
         private_dir=tmp_path,
         command="sh",

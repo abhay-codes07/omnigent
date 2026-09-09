@@ -41,7 +41,7 @@ def _isolate_global_config(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> N
     dir: ambient provider detection reads ``~/.codex/config.toml`` and
     ``~/.databrickscfg``, which live under HOME, not OMNIGENT_CONFIG_HOME. On
     a Databricks developer machine those otherwise pin a provider and break
-    these tests (issue #4279).
+    these tests.
 
     Tests that need a specific global config write their own config.yaml
     into a separate temp dir and set OMNIGENT_CONFIG_HOME themselves —

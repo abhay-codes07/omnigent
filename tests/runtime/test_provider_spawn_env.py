@@ -82,7 +82,7 @@ def _clear_ambient_keys(monkeypatch: pytest.MonkeyPatch) -> None:
 
 @pytest.fixture(autouse=True)
 def _isolate_ambient_provider_state(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
-    """Isolate host state ambient provider detection reads (issue #4279).
+    """Isolate host state ambient provider detection reads.
 
     Two ambient sources leak past ``$OMNIGENT_CONFIG_HOME``:
 

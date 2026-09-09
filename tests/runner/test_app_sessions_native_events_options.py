@@ -33,7 +33,7 @@ from tests.runner.helpers import NullServerClient
 
 @pytest.fixture(autouse=True)
 def _isolate_anthropic_default_model_env(monkeypatch: pytest.MonkeyPatch) -> None:
-    """Clear ambient ``ANTHROPIC_DEFAULT_*_MODEL`` gateway pins (#4279).
+    """Clear ambient ``ANTHROPIC_DEFAULT_*_MODEL`` gateway pins.
 
     claude-native model resolution reads these from ``os.environ``; a developer
     whose shell pins them (anyone driving Claude through a gateway) otherwise

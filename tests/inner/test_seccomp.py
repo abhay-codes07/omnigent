@@ -227,7 +227,7 @@ def _run_in_child(probe: str) -> int:
     # seccomp (prctl/seccomp_load) and os.fork() are Linux-only; off Linux the
     # child dies with "dlsym(prctl): symbol not found" (macOS) or os.fork raises
     # (Windows). Skip here so every real-filter test that forks a child is gated
-    # in one place (issue #4279), rather than each carrying its own marker.
+    # in one place, rather than each carrying its own marker.
     if sys.platform != "linux":
         pytest.skip("seccomp filter tests require Linux (prctl/seccomp_load + os.fork)")
     pid = os.fork()

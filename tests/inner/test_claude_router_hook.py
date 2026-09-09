@@ -27,7 +27,7 @@ def _isolate_anthropic_default_model_env(monkeypatch: pytest.MonkeyPatch) -> Non
     ``alias_pins()`` falls back to ``os.environ`` and ``claude_model_alias``
     returns ``None`` on a *mismatched* pin, so any developer whose shell pins
     these vars (anyone driving Claude through a gateway) gets no translation and
-    these tests fail spuriously (issue #4279). Tests that need a specific pin set
+    these tests fail spuriously. Tests that need a specific pin set
     it explicitly after this autouse fixture has cleared the ambient value.
     """
     for var in _ANTHROPIC_DEFAULT_MODEL_VARS:
